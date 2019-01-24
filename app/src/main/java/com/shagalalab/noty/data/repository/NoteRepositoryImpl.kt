@@ -10,7 +10,7 @@ class NoteRepositoryImpl(private val noteDao: NoteDao) : NoteRepository {
         noteDao.insertNote(note)
     }
 
-    override fun getNote(id: Int): LiveData<NoteDbModel> {
+    override fun getNote(id: Long): LiveData<NoteDbModel> {
         return noteDao.getNote(id)
     }
 
