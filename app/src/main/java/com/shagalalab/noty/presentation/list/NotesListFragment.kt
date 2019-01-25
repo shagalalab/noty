@@ -5,14 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.shagalalab.noty.R
-import com.shagalalab.noty.domain.usecase.GetNotesUseCase
 import kotlinx.android.synthetic.main.fragment_notes_list.view.*
-import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class NotesListFragment: Fragment() {
-    val getNotesUseCase: GetNotesUseCase by inject()
+class NotesListFragment : Fragment() {
+    private val viewModel: NotesListViewModel by viewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_notes_list, container, false)
@@ -24,5 +24,17 @@ class NotesListFragment: Fragment() {
         view.fab.setOnClickListener {
             it.findNavController().navigate(R.id.noteDetailsAction)
         }
+
+        viewModel.notesList.observe(viewLifecycleOwner, Observer { notes ->
+            println("notes size = ${notes.size}")
+        })
+
+        viewModel.hasNotes.observe(viewLifecycleOwner, Observer { hasNotes ->
+            if (hasNotes) {
+                view.emptyView.visibility = View.GONE
+            } else {
+                view.emptyView.visibility = View.VISIBLE
+            }
+        })
     }
 }

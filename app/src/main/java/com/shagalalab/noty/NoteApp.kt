@@ -9,6 +9,6 @@ class NoteApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        startKoin(this, listOf(Injections.repositoryModule, Injections.domainModule))
+        startKoin(this, listOf(Injections.repositoryModule, Injections.domainModule, Injections.viewmodelModule))
     }
 }

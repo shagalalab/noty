@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
@@ -27,6 +28,7 @@ ext {
     nav_version = '1.0.0-alpha11'
     material_version = '1.0.0'
     koin_version = '1.0.2'
+    lifecycle_version = '2.0.0'
     junit_version = '4.12'
 }
 
@@ -35,6 +37,9 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$appcompat_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraint_version"
     implementation "com.google.android.material:material:$material_version"
+
+    // Lifecycle
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
 
     // Room
     implementation "androidx.room:room-runtime:$room_version"
