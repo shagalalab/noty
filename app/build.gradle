@@ -26,6 +26,7 @@ ext {
     room_version = '2.1.0-alpha03'
     nav_version = '1.0.0-alpha11'
     material_version = '1.0.0'
+    koin_version = '1.0.2'
     junit_version = '4.12'
 }
 
@@ -42,6 +43,11 @@ dependencies {
     // Navigation
     implementation "android.arch.navigation:navigation-fragment-ktx:$nav_version"
     implementation "android.arch.navigation:navigation-ui-ktx:$nav_version"
+
+    // DI
+    implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-androidx-scope:$koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
 
     testImplementation "junit:junit:$junit_version"
 
