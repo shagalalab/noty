@@ -5,6 +5,7 @@ import com.shagalalab.noty.data.db.NoteDatabase
 import com.shagalalab.noty.data.repository.NoteRepositoryImpl
 import com.shagalalab.noty.domain.repository.NoteRepository
 import com.shagalalab.noty.domain.usecase.*
+import com.shagalalab.noty.presentation.detail.NoteDetailsViewModel
 import com.shagalalab.noty.presentation.list.NotesListViewModel
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.ext.koin.viewModel
@@ -28,6 +29,7 @@ object Injections {
 
     val viewmodelModule = module {
         viewModel { NotesListViewModel(get()) }
+        viewModel { NoteDetailsViewModel(get()) }
     }
 
 }

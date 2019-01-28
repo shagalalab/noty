@@ -4,10 +4,15 @@ import androidx.lifecycle.LiveData
 import com.shagalalab.noty.data.db.NoteDao
 import com.shagalalab.noty.data.model.NoteDbModel
 import com.shagalalab.noty.domain.repository.NoteRepository
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.withContext
 
 class NoteRepositoryImpl(private val noteDao: NoteDao) : NoteRepository {
-    override fun addNote(note: NoteDbModel) {
-        noteDao.insertNote(note)
+    override suspend fun addNote(note: NoteDbModel) {
+        withContext(IO) {
+            println("inside repo")
+            noteDao.insertNote(note)
+        }
     }
 
     override fun getNote(id: Long): LiveData<NoteDbModel> {
@@ -18,11 +23,15 @@ class NoteRepositoryImpl(private val noteDao: NoteDao) : NoteRepository {
         return noteDao.getNotes()
     }
 
-    override fun updateNote(note: NoteDbModel) {
-        return noteDao.insertNote(note)
+    override suspend fun updateNote(note: NoteDbModel) {
+        withContext(IO) {
+            noteDao.insertNote(note)
+        }
     }
 
-    override fun deleteNote(note: NoteDbModel) {
-        noteDao.deleteNote(note)
+    override suspend fun deleteNote(note: NoteDbModel) {
+        withContext(IO) {
+            noteDao.deleteNote(note)
+        }
     }
 }

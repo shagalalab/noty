@@ -14,4 +14,7 @@
     <string name="menu_settings">Settings</string>
     <string name="title">Title</string>
     <string name="content">Content</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="content_empty">Contents cannot be empty</string>
 </resources>

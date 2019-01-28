@@ -3,7 +3,7 @@ package com.shagalalab.noty.domain.usecase
 import androidx.lifecycle.LiveData
 
 interface UseCase<P, R> {
-    fun execute(param: P): R
+    suspend fun execute(param: P): R
 }
 
 interface LiveDataUseCase<P, R> {

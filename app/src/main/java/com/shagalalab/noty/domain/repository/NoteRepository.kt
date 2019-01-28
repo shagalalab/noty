@@ -4,13 +4,13 @@ import androidx.lifecycle.LiveData
 import com.shagalalab.noty.data.model.NoteDbModel
 
 interface NoteRepository {
-    fun addNote(note: NoteDbModel)
+    suspend fun addNote(note: NoteDbModel)
 
     fun getNote(id: Long): LiveData<NoteDbModel>
 
     fun getNotes(): LiveData<List<NoteDbModel>>
 
-    fun updateNote(note: NoteDbModel)
+    suspend fun updateNote(note: NoteDbModel)
 
-    fun deleteNote(note: NoteDbModel)
+    suspend fun deleteNote(note: NoteDbModel)
 }

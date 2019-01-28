@@ -5,7 +5,7 @@ import com.shagalalab.noty.domain.repository.NoteRepository
 
 class AddNoteUseCase(private val repository: NoteRepository) : UseCase<Note, Unit> {
 
-    override fun execute(param: Note) {
+    override suspend fun execute(param: Note) {
         repository.addNote(param.toData())
     }
 
