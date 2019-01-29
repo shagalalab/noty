@@ -7,14 +7,18 @@
     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/notesRecycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
     <TextView
         android:id="@+id/emptyView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="No Items yet"
+        android:text="@string/no_notes"
+        android:paddingStart="@dimen/empty_view_padding"
+        android:paddingEnd="@dimen/empty_view_padding"
         android:gravity="center"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

@@ -35,7 +35,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleInputLayout"
-        app:layout_constraintBottom_toTopOf="@+id/save">
+        app:layout_constraintBottom_toTopOf="@+id/saveNote">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/noteDetailsContent"
@@ -51,7 +51,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/save"
+        android:id="@+id/saveNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin_standard"
@@ -61,13 +61,13 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
-        android:id="@+id/cancel"
+        android:id="@+id/cancelNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin_standard"
         android:layout_marginEnd="@dimen/margin_standard"
         android:text="@string/cancel"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/save"/>
+        app:layout_constraintEnd_toStartOf="@+id/saveNote"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

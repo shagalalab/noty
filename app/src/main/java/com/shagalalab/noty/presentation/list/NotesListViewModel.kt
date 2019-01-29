@@ -7,6 +7,6 @@ import com.shagalalab.noty.domain.model.Note
 import com.shagalalab.noty.domain.usecase.GetNotesUseCase
 
 class NotesListViewModel(getNotesUseCase: GetNotesUseCase) : ViewModel() {
-    var notesList: LiveData<List<Note>> = getNotesUseCase.execute(Unit)
+    val notesList: LiveData<List<Note>> = getNotesUseCase.execute(Unit)
     val hasNotes: LiveData<Boolean> = Transformations.map(notesList) { it.isNotEmpty() }
 }

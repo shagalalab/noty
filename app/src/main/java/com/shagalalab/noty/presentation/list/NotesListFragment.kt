@@ -25,8 +25,11 @@ class NotesListFragment : Fragment() {
             it.findNavController().navigate(R.id.noteDetailsAction)
         }
 
+        val adapter = NotesAdapter()
+        view.notesRecycler.adapter = adapter
+
         viewModel.notesList.observe(viewLifecycleOwner, Observer { notes ->
-            println("notes size = ${notes.size}")
+            adapter.submitList(notes)
         })
 
         viewModel.hasNotes.observe(viewLifecycleOwner, Observer { hasNotes ->

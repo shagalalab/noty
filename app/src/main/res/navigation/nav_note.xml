@@ -1,20 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/nav_graph"
-            app:startDestination="@id/notesListFragment">
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/notesListFragment">
 
-    <fragment android:id="@+id/notesListFragment"
-              android:name="com.shagalalab.noty.presentation.list.NotesListFragment"
-              android:label="@string/app_name">
+    <fragment
+        android:id="@+id/notesListFragment"
+        android:name="com.shagalalab.noty.presentation.list.NotesListFragment"
+        android:label="@string/app_name">
 
-        <action android:id="@+id/noteDetailsAction"
-                app:destination="@id/noteDetailsFragment"/>
+        <action
+            android:id="@+id/noteDetailsAction"
+            app:destination="@id/noteDetailsFragment"/>
 
     </fragment>
 
-    <fragment android:id="@+id/noteDetailsFragment"
-              android:name="com.shagalalab.noty.presentation.detail.NoteDetailsFragment"
-              android:label="@string/add_note"/>
+    <fragment
+        android:id="@+id/noteDetailsFragment"
+        android:name="com.shagalalab.noty.presentation.detail.NoteDetailsFragment"
+        android:label="@string/add_note">
+
+        <argument
+            android:name="noteId"
+            app:argType="integer"
+            android:defaultValue="0"/>
+    </fragment>
 
 </navigation>

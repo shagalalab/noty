@@ -29,7 +29,7 @@ object Injections {
 
     val viewmodelModule = module {
         viewModel { NotesListViewModel(get()) }
-        viewModel { NoteDetailsViewModel(get()) }
+        viewModel { NoteDetailsViewModel(get(), get()) }
     }
 
 }

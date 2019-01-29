@@ -10,7 +10,6 @@ import kotlinx.coroutines.withContext
 class NoteRepositoryImpl(private val noteDao: NoteDao) : NoteRepository {
     override suspend fun addNote(note: NoteDbModel) {
         withContext(IO) {
-            println("inside repo")
             noteDao.insertNote(note)
         }
     }

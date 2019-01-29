@@ -5,12 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.shagalalab.noty.R
 import com.shagalalab.noty.domain.model.Note
 import com.shagalalab.noty.presentation.NoteActivity
 import kotlinx.android.synthetic.main.fragment_note_details.*
-import kotlinx.android.synthetic.main.fragment_note_details.view.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class NoteDetailsFragment : Fragment() {
@@ -33,19 +33,26 @@ class NoteDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.save.setOnClickListener {
-            if (view.noteDetailsContent.text.toString().isNotEmpty()) {
+        if (noteId > 0) {
+            viewModel.getNote(noteId).observe(viewLifecycleOwner, Observer {
+                noteDetailsTitle.setText(it.title)
+                noteDetailsContent.setText(it.content)
+            })
+        }
+
+        saveNote.setOnClickListener {
+            if (noteDetailsContent.text.toString().isNotEmpty()) {
                 viewModel.insertNote(Note(noteId, noteDetailsTitle.text.toString(), noteDetailsContent.text.toString())) {
                     clearFocus()
                     it.findNavController().navigateUp()
                 }
             } else {
-                view.noteDetailsContent.requestFocus()
-                view.noteDetailsContent.error = getString(R.string.content_empty)
+                noteDetailsContent.requestFocus()
+                noteDetailsContent.error = getString(R.string.content_empty)
             }
         }
 
-        view.cancel.setOnClickListener {
+        cancelNote.setOnClickListener {
             clearFocus()
             it.findNavController().navigateUp()
         }
