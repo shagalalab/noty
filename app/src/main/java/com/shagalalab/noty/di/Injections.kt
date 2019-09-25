@@ -8,8 +8,8 @@ import com.shagalalab.noty.domain.usecase.*
 import com.shagalalab.noty.presentation.detail.NoteDetailsViewModel
 import com.shagalalab.noty.presentation.list.NotesListViewModel
 import org.koin.android.ext.koin.androidApplication
-import org.koin.androidx.viewmodel.ext.koin.viewModel
-import org.koin.dsl.module.module
+import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.dsl.module
 
 object Injections {
 
